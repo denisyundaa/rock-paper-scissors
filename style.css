@@ -1,0 +1,214 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+:root {
+    --cream-bg: #FAF0E6;
+    --navy-blue-text: #001f3f;
+    --navy-blue-accent: #003366;
+    --light-cream-card: #fffaf0;
+    --primary-action: #0056b3;
+}
+
+/* MODIFIKASI BAGIAN BODY */
+body {
+    background-color: var(--cream-bg); /* Pindahkan background utama ke body */
+    color: var(--navy-blue-text);
+    margin: 0; /* Hapus margin default browser */
+    /* Hapus display:flex, align-items, justify-content, dan padding dari sini */
+}
+
+/* STYLING UNTUK MAIN WRAPPER */
+.main-wrapper {
+    /* Kelas d-flex flex-column min-vh-100 sudah di HTML via Bootstrap */
+    /* Jika ingin padding global, tambahkan di sini, bukan di body */
+    padding: 1rem;
+}
+
+/* CSS yang sudah ada untuk .game-container dan elemen di dalamnya tetap */
+.game-container .card {
+    background-color: var(--light-cream-card);
+    border: 1px solid var(--navy-blue-accent);
+    padding: 1.5rem;
+}
+
+.card-title {
+    color: var(--navy-blue-text);
+    font-weight: 600;
+}
+
+.lead {
+    color: var(--navy-blue-accent);
+}
+
+.score-board h4 {
+    color: var(--navy-blue-text);
+    font-weight: 500;
+}
+
+.player-label {
+    font-size: 1.2rem;
+    color: var(--navy-blue-accent);
+    margin-bottom: 0.5rem;
+}
+
+.vs-text {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--navy-blue-accent);
+}
+
+.result_images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 120px;
+}
+
+.game-container.start .user_result {
+    transform-origin: center;
+    animation: userShake 0.7s ease infinite;
+}
+
+@keyframes userShake {
+    50% {
+        transform: rotate(10deg);
+    }
+}
+
+.game-container.start .cpu_result {
+    transform-origin: center;
+    animation: cpuShake 0.7s ease infinite;
+}
+
+@keyframes cpuShake {
+    50% {
+        transform: rotate(-10deg);
+    }
+}
+
+.result_images img {
+    width: 100px;
+    max-width: 100%;
+    height: auto;  
+}
+
+.user_result img {
+    transform: rotate(90deg);
+}
+
+.cpu_result img {
+    transform: rotate(-90deg) rotateY(180deg);
+}
+
+.result {
+    font-size: 1.75rem;
+    color: var(--navy-blue-text);
+    font-weight: 500;
+    margin-top: 1rem;
+    min-height: 50px;
+}
+
+.options-field h4 {
+    color: var(--navy-blue-accent);
+}
+
+.option_image.card {
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid transparent;
+    background-color: #ffffff;
+}
+
+.option_image.card:hover {
+    opacity: 1;
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 31, 63, 0.2);
+    border-color: var(--navy-blue-accent);
+}
+
+.option_image.card.active {
+    opacity: 1;
+    border-color: var(--primary-action);
+    box-shadow: 0 0 10px var(--primary-action);
+}
+
+.option_image img.card-img-top {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin: 0 auto;
+    pointer-events: none;
+}
+
+.option_image .card-body {
+    background-color: transparent;
+}
+
+.option_image p.card-text {
+    color: var(--navy-blue-text);
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    font-weight: 500;
+    pointer-events: none;
+    text-align: center;
+}
+
+.game-container.start .option_images,
+.game-container.game-over .option_images {
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.option_image.active {
+    opacity: 1;
+}
+
+/* Modal styling */
+#gameOverModal .modal-content {
+    background-color: var(--light-cream-card);
+    color: var(--navy-blue-text);
+}
+#gameOverModal .modal-header {
+    border-bottom: 1px solid var(--navy-blue-accent);
+}
+#gameOverModal .modal-footer {
+    border-top: 1px solid var(--navy-blue-accent);
+}
+#gameOverModal #gameOverModalLabel {
+    color: var(--navy-blue-text);
+}
+#restartGameButton {
+    background-color: var(--primary-action);
+    border-color: var(--primary-action);
+}
+#restartGameButton:hover {
+    background-color: #004080;
+    border-color: #004080;
+}
+
+/* PENAMBAHAN ATAU PENYESUAIAN CSS FOOTER */
+/* Hapus .main-wrapper dari CSS karena sudah diatur oleh Bootstrap di HTML */
+/* .main-wrapper {
+    background-color: var(--cream-bg); 
+} */
+
+.site-footer {
+    background-color: var(--light-cream-card); /* Bisa juga var(--cream-bg) jika ingin sama dengan body */
+    color: var(--navy-blue-text);
+    border-top: 1px solid var(--navy-blue-accent);
+    /* py-3 sudah ditambahkan di kelas HTML footer, jadi padding atas-bawah sudah ada */
+}
+
+.site-footer p {
+    margin-bottom: 0.25rem; /* Mengurangi sedikit margin bawah dari sebelumnya */
+    font-size: 0.9rem;
+}
+
+.site-footer a {
+    color: var(--navy-blue-text);
+    transition: color 0.3s ease;
+}
+
+.site-footer a:hover {
+    color: var(--primary-action);
+}
